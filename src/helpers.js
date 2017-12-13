@@ -39,6 +39,7 @@ export const checkWidth = (object: Object) => (
 
     const percent = checkPercent($size);
 
+    // $FlowIssues
     return media[key]`
       flex-basis: ${percent};
       max-width: ${percent};

@@ -31,6 +31,5 @@ build
 build
 npm-debug.log
 node_modules/
+flow-typed/
 yarn-error
-
-test.js
