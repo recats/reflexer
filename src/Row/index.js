@@ -1,8 +1,10 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import { Row } from './styled';
+import { withTheme } from 'styled-components';
 
+import { Row } from './styled';
+import * as consts from './const';
 
 import type {
   FlowFlexWrap, FlowFlexDirection, FlowAlignContent, FlowAlignItems, FlowJustifyContnet,
@@ -15,28 +17,29 @@ type Props = {
   alignItems?: FlowAlignItems,
   alignContent?: FlowAlignContent,
   children: Node,
+  theme?: Object,
 }
 
 const FlexRow = ({
-  children, flexDirection, flexWrap, justifyContent, alignItems, alignContent,
+  children, flexDirection, flexWrap, justifyContent, alignItems, alignContent, theme,
 }: Props) => (
-  <Row
-    flexDirection={flexDirection}
-    flexWrap={flexWrap}
-    justifyContent={justifyContent}
-    alignItems={alignItems}
-    alignContent={alignContent}
-  >
-    {children}
-  </Row>
+  React.createElement(
+    Row,
+    {
+      flexDirection, flexWrap, justifyContent, alignItems, alignContent, theme,
+    },
+    children,
+  )
 );
 
 FlexRow.defaultProps = {
-  flexWrap: undefined,
-  flexDirection: undefined,
-  justifyContent: undefined,
-  alignItems: undefined,
-  alignContent: undefined,
+  theme: undefined,
+  flexWrap: { xs: consts.flexWrap.wrap },
+  flexDirection: { xs: consts.flexDirection.row },
+  justifyContent: { xs: consts.justifyContent.flexStart },
+  alignItems: { xs: consts.alignItems.stretch },
+  alignContent: { xs: consts.alignContent.stretch },
 };
 
-export default FlexRow;
+// $FlowIssues
+export default withTheme(FlexRow);

@@ -1,10 +1,11 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react')) :
-	typeof define === 'function' && define.amd ? define(['exports', 'react'], factory) :
-	(factory((global.index = {}),global.React));
-}(this, (function (exports,React) { 'use strict';
+'use strict';
 
-var React__default = 'default' in React ? React['default'] : React;
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var React = require('react');
+var React__default = _interopDefault(React);
 
 /*!
  * isobject <https://github.com/jonschlinkert/isobject>
@@ -4646,6 +4647,7 @@ var checkWidth = function checkWidth(object) {
 
     var percent = checkPercent($size);
 
+    // $FlowIssues
     return media[key](_templateObject2, percent, percent);
   });
 };
@@ -4671,11 +4673,7 @@ var FlexGrid = function FlexGrid(_ref) {
   var children = _ref.children,
       _ref$fluid = _ref.fluid,
       fluid = _ref$fluid === undefined ? false : _ref$fluid;
-  return React__default.createElement(
-    Grid,
-    { fluid: fluid },
-    children
-  );
+  return React__default.createElement(Grid, { fluid: fluid }, children);
 };
 
 FlexGrid.defaultProps = {
@@ -4699,11 +4697,7 @@ var FlexCol = function FlexCol(_ref) {
       basis = _ref.basis,
       order = _ref.order,
       offset = _ref.offset;
-  return React__default.createElement(
-    Col,
-    { basis: basis, order: order, offset: offset },
-    children
-  );
+  return React__default.createElement(Col, { basis: basis, order: order, offset: offset }, children);
 };
 
 FlexCol.defaultProps = {
@@ -4731,17 +4725,9 @@ var FlexRow = function FlexRow(_ref) {
       justifyContent = _ref.justifyContent,
       alignItems = _ref.alignItems,
       alignContent = _ref.alignContent;
-  return React__default.createElement(
-    Row,
-    {
-      flexDirection: flexDirection,
-      flexWrap: flexWrap,
-      justifyContent: justifyContent,
-      alignItems: alignItems,
-      alignContent: alignContent
-    },
-    children
-  );
+  return React__default.createElement(Row, {
+    flexDirection: flexDirection, flexWrap: flexWrap, justifyContent: justifyContent, alignItems: alignItems, alignContent: alignContent
+  }, children);
 };
 
 FlexRow.defaultProps = {
@@ -4755,7 +4741,3 @@ FlexRow.defaultProps = {
 exports.Grid = FlexGrid;
 exports.Row = FlexRow;
 exports.Col = FlexCol;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));

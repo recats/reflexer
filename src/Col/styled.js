@@ -7,8 +7,12 @@ import { checkWidth, mediaProperty, checkPercent, theme } from '../helpers';
 export const Col = styled.div`
   box-sizing: border-box;
   flex: 0 0 auto;
-  padding-right: ${theme.colGutter};
-  padding-left: ${theme.colGutter};
+  padding-right: ${props => (
+    props.theme ? props.theme.reflexer.colGutter : theme.reflexer.colGutter
+  )};
+  padding-left: ${props => (
+    props.theme ? props.theme.reflexer.colGutter : theme.reflexer.colGutter
+  )};
   ${props => props.order && mediaProperty(props.order, 'order')};
   ${props => props.offset && mediaProperty(props.offset, 'margin-left', checkPercent)};
   ${props => props.basis && checkWidth(props.basis)};

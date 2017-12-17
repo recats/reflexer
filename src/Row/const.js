@@ -43,6 +43,7 @@ export type FlowFlexWrap = {
   sm: $Keys<typeof flexWrap>,
   md: $Keys<typeof flexWrap>,
   lg: $Keys<typeof flexWrap>,
+  xl: $Keys<typeof flexWrap>,
 };
 
 export type FlowFlexDirection = {
@@ -50,6 +51,7 @@ export type FlowFlexDirection = {
   sm: $Keys<typeof flexDirection>,
   md: $Keys<typeof flexDirection>,
   lg: $Keys<typeof flexDirection>,
+  xl: $Keys<typeof flexDirection>,
 };
 
 export type FlowJustifyContnet = {
@@ -57,6 +59,7 @@ export type FlowJustifyContnet = {
   sm: $Keys<typeof justifyContent>,
   md: $Keys<typeof justifyContent>,
   lg: $Keys<typeof justifyContent>,
+  xl: $Keys<typeof justifyContent>,
 };
 
 export type FlowAlignContent = {
@@ -64,6 +67,7 @@ export type FlowAlignContent = {
   sm: $Keys<typeof alignContent>,
   md: $Keys<typeof alignContent>,
   lg: $Keys<typeof alignContent>,
+  xl: $Keys<typeof alignContent>,
 };
 
 export type FlowAlignItems = {
@@ -71,4 +75,5 @@ export type FlowAlignItems = {
   sm: $Keys<typeof alignItems>,
   md: $Keys<typeof alignItems>,
   lg: $Keys<typeof alignItems>,
+  xl: $Keys<typeof alignItems>,
 };

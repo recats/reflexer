@@ -8,9 +8,11 @@ type Props = {
 }
 
 const FlexGrid = ({ children, fluid = false }: Props) => (
-  <Grid fluid={fluid}>
-    {children}
-  </Grid>
+  React.createElement(
+    Grid,
+    { fluid },
+    children,
+  )
 );
 
 FlexGrid.defaultProps = {
