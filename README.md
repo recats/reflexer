@@ -1,4 +1,4 @@
-# reFlexer
+# reflexer
 
 ## Grid
 ```js
@@ -44,7 +44,7 @@ import { Col } from 'reflexer';
 import { ThemeProvider } from 'styled-components';
 
 const theme = {
-	reflexer: {
+  reflexer: {
     gridFluid: '2rem',
     rowGutter: '-0.5rem',
     colGutter: '0.5rem',
