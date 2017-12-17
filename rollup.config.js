@@ -3,12 +3,12 @@ import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
 
 export default {
-  entry: 'src/index.js',
-  format: 'umd',
+  entry: 'index.js',
+  format: 'cjs',
   exports: 'named',
   moduleName: 'index',
   dest: 'dist/index.js',
-  external: ['react', 'react-dom'],
+  external: ['react'],
   plugins: [
     commonjs({
       include: 'node_modules/**',

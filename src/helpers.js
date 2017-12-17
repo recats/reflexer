@@ -2,9 +2,11 @@
 import { css } from 'styled-components';
 
 export const theme = {
-  gridFluid: '2rem',
-  rowGutter: '-0.5rem',
-  colGutter: '0.5rem',
+  reflexer: {
+    gridFluid: '2rem',
+    rowGutter: '-0.5rem',
+    colGutter: '0.5rem',
+  },
 };
 
 export const sizeMedia = {

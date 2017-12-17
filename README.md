@@ -15,7 +15,6 @@ import { Grid } from 'reflexer';
 import { Row } from 'reflexer';
 
 <Row
-  gutter="2rem"
   flexWrap={{ xs: flexWrap.*, sm: flexWrap.*, md: flexWrap.*, lg: flexWrap.* }}
   flexDirection={{ xs: flexDirection.*, sm: flexDirection.*, md: flexDirection.*, lg: flexDirection.* }}
   justifyContent={{ xs: justifyContent.*, sm: justifyContent.*, md: justifyContent.*, lg: justifyContent.* }}
@@ -40,7 +39,27 @@ import { Col } from 'reflexer';
 ```
 
 
+## Theme
+```js
+import { ThemeProvider } from 'styled-components';
+
+const theme = {
+	reflexer: {
+    gridFluid: '2rem',
+    rowGutter: '-0.5rem',
+    colGutter: '0.5rem',
+  }
+};
+
+ReactDOM.render(
+  <ThemeProvider theme={theme}>
+    <App />
+  </ThemeProvider>,
+  document.getElementById('root')
+);
+```
+
 ## TODO
 - [ ] Test
-- [ ] Coveral
+- [ ] Coveralls
 - [ ] Demo Stand
