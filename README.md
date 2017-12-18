@@ -1,4 +1,5 @@
 # reflexer
+[![Build Status](https://travis-ci.org/stk-dmitry/reflexer.svg?branch=master)](https://travis-ci.org/stk-dmitry/reflexer)
 
 ## Grid
 ```js
