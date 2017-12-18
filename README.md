@@ -1,4 +1,5 @@
 # reflexer
+[![Build Status](https://travis-ci.org/stk-dmitry/reflexer.svg?branch=master)](https://travis-ci.org/stk-dmitry/reflexer)
 
 ## Grid
 ```js
@@ -57,6 +58,14 @@ ReactDOM.render(
   </ThemeProvider>,
   document.getElementById('root')
 );
+```
+
+
+## Default size
+```js
+export const sizeMedia = {
+  xl: 75, lg: 64, md: 48, sm: 30, xs: 0,
+};
 ```
 
 ## TODO
