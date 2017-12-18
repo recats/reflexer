@@ -59,6 +59,14 @@ ReactDOM.render(
 );
 ```
 
+
+## Default size
+```js
+export const sizeMedia = {
+  xl: 75, lg: 64, md: 48, sm: 30, xs: 0,
+};
+```
+
 ## TODO
 - [ ] Test
 - [ ] Coveralls
