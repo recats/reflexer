@@ -1,9 +1,11 @@
 # reflexer
 [![Build Status](https://travis-ci.org/stk-dmitry/reflexer.svg?branch=master)](https://travis-ci.org/stk-dmitry/reflexer)
+[Recats Digital](https://img.shields.io/badge/recats-digital-1abc9c.svg?style=flat)
 
 ## Grid
 ```js
 import { Grid } from 'reflexer';
+
 <Grid fluid?>
   grid reflexer
 </Grid>
@@ -16,11 +18,11 @@ import { Grid } from 'reflexer';
 import { Row } from 'reflexer';
 
 <Row
-  flexWrap={{ xs: flexWrap.*, sm: flexWrap.*, md: flexWrap.*, lg: flexWrap.* }}
-  flexDirection={{ xs: flexDirection.*, sm: flexDirection.*, md: flexDirection.*, lg: flexDirection.* }}
-  justifyContent={{ xs: justifyContent.*, sm: justifyContent.*, md: justifyContent.*, lg: justifyContent.* }}
-  alignItems={{ xs: alignItems.*, sm: alignItems.*, md: alignItems.*, lg: alignItems.* }}
-  alignContent={{ xs: alignContent.*, sm: alignContent.*, md: alignContent.*, lg: alignContent.* }}
+  flexWrap={{ xs: flexWrap.*, sm: flexWrap.*, ... }}
+  flexDirection={{ xs: flexDirection.*, sm: flexDirection.*, ... }}
+  justifyContent={{ xs: justifyContent.*, sm: justifyContent.*, ... }}
+  alignItems={{ xs: alignItems.*, sm: alignItems.*, md: alignItems.*, ... }}
+  alignContent={{ xs: alignContent.*, sm: alignContent.*, md: alignContent.*, ... }}
 >
   row reflexer
 </Row>
@@ -42,13 +44,15 @@ import { Col } from 'reflexer';
 
 ## Theme
 ```js
+import { ThemeProvider } from 'reflexer';
+// or
 import { ThemeProvider } from 'styled-components';
 
 const theme = {
   reflexer: {
-    gridFluid: '2rem',
-    rowGutter: '-0.5rem',
-    colGutter: '0.5rem',
+    gridFluid: *,
+    rowGutter: *,
+    colGutter: *,
   }
 };
 
@@ -61,10 +65,18 @@ ReactDOM.render(
 ```
 
 
-## Default size
+## Default params
 ```js
+export const theme = {
+  reflexer: {
+    gridFluid: '2rem',
+    rowGutter: '-0.5rem',
+    colGutter: '0.5rem',
+  },
+};
+
 export const sizeMedia = {
-  xl: 75, lg: 64, md: 48, sm: 30, xs: 0,
+  xl: '75em', lg: '64em', md: '48em', sm: '30em', xs: 0,
 };
 ```
 
