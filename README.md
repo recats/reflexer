@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/stk-dmitry/reflexer.svg?branch=master)](https://travis-ci.org/stk-dmitry/reflexer)
 ![Recats Digital](https://img.shields.io/badge/recats-digital-1abc9c.svg?style=flat)
 
-# Instal
+# Install
 ```sh
 yarn add reflexer
 npm install reflexer
