@@ -13,6 +13,10 @@ export const sizeMedia = {
   xl: 75, lg: 64, md: 48, sm: 30, xs: 0,
 };
 
+export const propsChecker = (props: Object, entity: string) => (
+  props.theme.reflexer ? props.theme.reflexer[entity] : theme.reflexer[entity]
+);
+
 export const media = Object.keys(sizeMedia).reduce((accumulator, label) => {
   const accum = accumulator;
   accum[label] = (...args: *) => css`
