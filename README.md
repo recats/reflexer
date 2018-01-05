@@ -1,4 +1,6 @@
 # reflexer
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/stk-dmitry/reflexer.svg)](https://greenkeeper.io/)
 [![npm](https://img.shields.io/npm/v/reflexer.svg)](https://www.npmjs.com/package/reflexer)
 [![Build Status](https://travis-ci.org/stk-dmitry/reflexer.svg?branch=master)](https://travis-ci.org/stk-dmitry/reflexer)
 ![Recats Digital](https://img.shields.io/badge/recats-digital-1abc9c.svg?style=flat)
