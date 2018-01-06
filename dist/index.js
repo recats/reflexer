@@ -4341,7 +4341,7 @@ FlexCol.defaultProps = {
 // $FlowIssues
 var index = wrapWithTheme(FlexCol);
 
-var _templateObject$3 = taggedTemplateLiteral(['\n  box-sizing: border-box;\n  display: flex;\n  flex: 0 1 auto;\n  margin-right: ', ';\n  margin-left: ', ';\n  ', ';\n  ', ';\n  ', ';\n  ', ';\n'], ['\n  box-sizing: border-box;\n  display: flex;\n  flex: 0 1 auto;\n  margin-right: ', ';\n  margin-left: ', ';\n  ', ';\n  ', ';\n  ', ';\n  ', ';\n']);
+var _templateObject$3 = taggedTemplateLiteral(['\n  box-sizing: border-box;\n  display: flex;\n  flex: 0 1 auto;\n  margin-right: ', ';\n  margin-left: ', ';\n  ', ';\n  ', ';\n  ', ';\n  ', ';\n  ', ';\n'], ['\n  box-sizing: border-box;\n  display: flex;\n  flex: 0 1 auto;\n  margin-right: ', ';\n  margin-left: ', ';\n  ', ';\n  ', ';\n  ', ';\n  ', ';\n  ', ';\n']);
 
 // eslint-disable-next-line
 var Row = styled.div(_templateObject$3, function (props) {
@@ -4351,9 +4351,11 @@ var Row = styled.div(_templateObject$3, function (props) {
 }, function (props) {
   return props.flexDirection && mediaProperty(props.flexDirection, 'flex-direction');
 }, function (props) {
-  return props.alignItems && mediaProperty(props.alignItems, 'align-items');
-}, function (props) {
   return props.flexWrap && mediaProperty(props.flexWrap, 'flex-wrap');
+}, function (props) {
+  return props.justifyContent && mediaProperty(props.justifyContent, 'justifyContent');
+}, function (props) {
+  return props.alignItems && mediaProperty(props.alignItems, 'align-items');
 }, function (props) {
   return props.alignContent && mediaProperty(props.alignContent, 'align-content');
 });
