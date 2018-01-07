@@ -10,7 +10,7 @@ export const Row = styled.div`
   margin-left: ${props => propsChecker(props, 'rowGutter')};
   ${props => props.flexDirection && mediaProperty(props.flexDirection, 'flex-direction')};
   ${props => props.flexWrap && mediaProperty(props.flexWrap, 'flex-wrap')};
-  ${props => props.justifyContent && mediaProperty(props.justifyContent, 'justifyContent')};
+  ${props => props.justifyContent && mediaProperty(props.justifyContent, 'justify-content')};
   ${props => props.alignItems && mediaProperty(props.alignItems, 'align-items')};
   ${props => props.alignContent && mediaProperty(props.alignContent, 'align-content')};
 `;

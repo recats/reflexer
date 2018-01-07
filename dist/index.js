@@ -4353,7 +4353,7 @@ var Row = styled.div(_templateObject$3, function (props) {
 }, function (props) {
   return props.flexWrap && mediaProperty(props.flexWrap, 'flex-wrap');
 }, function (props) {
-  return props.justifyContent && mediaProperty(props.justifyContent, 'justifyContent');
+  return props.justifyContent && mediaProperty(props.justifyContent, 'justify-content');
 }, function (props) {
   return props.alignItems && mediaProperty(props.alignItems, 'align-items');
 }, function (props) {
