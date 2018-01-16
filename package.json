@@ -1,6 +1,6 @@
 {
   "name": "reflexer",
-  "version": "0.3",
+  "version": "0.3.0",
   "description": "React flexbox grid library",
   "main": "lib/index.js",
   "repository": "git@github.com:stk-dmitry/reflexer.git",
@@ -12,7 +12,7 @@
     "flow:build": "bash ./flow.sh",
     "lint:js": "./node_modules/.bin/eslint ./src --ext=js,jsx",
     "test": "yarn lint:js && yarn flow:build",
-    "precommit": "yarn test && yarn build"
+    "precommit": "yarn test"
   },
   "keywords": [
     "flexbox",
