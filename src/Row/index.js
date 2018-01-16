@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import { withTheme } from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 
 import { Row } from './styled';
 import * as consts from './const';
@@ -20,19 +20,20 @@ type Props = {
   theme?: Object,
 }
 
-const FlexRow = ({
-  children, flexDirection, flexWrap, justifyContent, alignItems, alignContent, theme,
-}: Props) => (
-  React.createElement(
-    Row,
-    {
-      flexDirection, flexWrap, justifyContent, alignItems, alignContent, theme,
-    },
-    children,
-  )
+
+const Styled = styled(({
+  children, flexDirection, flexWrap, justifyContent, alignItems, alignContent, theme, ...props
+}: Props) => React.createElement(
+  'div',
+  props,
+  children,
+))`${Row}`;
+
+const FlexElement = (props: Props) => (
+  <Styled {...props} />
 );
 
-FlexRow.defaultProps = {
+FlexElement.defaultProps = {
   theme: undefined,
   flexWrap: { xs: consts.flexWrap.wrap },
   flexDirection: { xs: consts.flexDirection.row },
@@ -42,4 +43,4 @@ FlexRow.defaultProps = {
 };
 
 // $FlowIssues
-export default withTheme(FlexRow);
+export default withTheme(FlexElement);

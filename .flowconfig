@@ -2,6 +2,7 @@
 .*/node_modules/fbjs/.*
 .*/node_modules/eslint-plugin-jsx-a11y/.*
 .*/node_modules/styled-components/.*
+.*/node_modules/nwb/.*
 .*y18n
 
 [include]
