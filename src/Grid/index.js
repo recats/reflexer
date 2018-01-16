@@ -1,5 +1,7 @@
 // @flow
+import type { Node } from 'react';
 import React from 'react';
+import styled from 'styled-components';
 import { Grid } from './styled';
 
 type Props = {
@@ -7,16 +9,19 @@ type Props = {
   fluid?: boolean,
 }
 
-const FlexGrid = ({ children, fluid = false }: Props) => (
-  React.createElement(
-    Grid,
-    { fluid },
-    children,
-  )
-);
+const Styled = styled(({
+  children, fluid, ...props
+}: Props) => React.createElement(
+  'div',
+  props,
+  children,
+))`${Grid}`;
 
-FlexGrid.defaultProps = {
+const GridElement = (props: Props) => <Styled {...props} />;
+
+GridElement.defaultProps = {
   fluid: false,
 };
 
-export default FlexGrid;
+// $FlowIssues
+export default GridElement;

@@ -1,9 +1,0 @@
-{
-  "presets": ["es2015-rollup", "stage-1"],
-  "plugins": [
-    "transform-flow-strip-types",
-    "transform-object-rest-spread",
-    "transform-object-assign",
-    "external-helpers",
-  ],
-}

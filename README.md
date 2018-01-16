@@ -11,7 +11,6 @@ yarn add reflexer
 npm install reflexer
 ```
 
-
 ## Grid
 ```js
 import { Grid } from 'reflexer';
@@ -28,11 +27,11 @@ import { Grid } from 'reflexer';
 import { Row } from 'reflexer';
 
 <Row
-  flexWrap={{ xs: flexWrap.*, sm: flexWrap.*, ... }}
-  flexDirection={{ xs: flexDirection.*, sm: flexDirection.*, ... }}
-  justifyContent={{ xs: justifyContent.*, sm: justifyContent.*, ... }}
-  alignItems={{ xs: alignItems.*, sm: alignItems.*, md: alignItems.*, ... }}
-  alignContent={{ xs: alignContent.*, sm: alignContent.*, md: alignContent.*, ... }}
+  flexWrap={{ xs: *, sm: *, ... }}
+  flexDirection={{ xs: *, sm: *, ... }}
+  justifyContent={{ xs: *, sm: *, ... }}
+  alignItems={{ xs: *, sm: *, md: *, ... }}
+  alignContent={{ xs: *, sm: *, md: *, ... }}
 >
   row reflexer
 </Row>
