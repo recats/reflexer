@@ -1,15 +1,15 @@
 /* eslint arrow-body-style: ["error", "as-needed"] */
-import styled from 'styled-components';
+import { css } from 'styled-components';
 
 import { checkWidth, mediaProperty, checkPercent, propsChecker } from '../helpers';
 
 // eslint-disable-next-line
-export const Col = styled.div`
+export const Col = props => css`
   box-sizing: border-box;
   flex: 0 0 auto;
-  padding-right: ${props => propsChecker(props, 'colGutter')};
-  padding-left: ${props => propsChecker(props, 'colGutter')};
-  ${props => props.order && mediaProperty(props.order, 'order')};
-  ${props => props.offset && mediaProperty(props.offset, 'margin-left', checkPercent)};
-  ${props => props.basis && checkWidth(props.basis)};
+  padding-right: ${propsChecker(props, 'colGutter')};
+  padding-left: ${propsChecker(props, 'colGutter')};
+  ${props.order && mediaProperty(props.order, 'order')};
+  ${props.offset && mediaProperty(props.offset, 'margin-left', checkPercent)};
+  ${props.basis && checkWidth(props.basis)};
 `;

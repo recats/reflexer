@@ -6,6 +6,7 @@
   ],
   "plugins": ["compat", "flowtype", "react"],
   "rules": {
+    "import/no-extraneous-dependencies": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
