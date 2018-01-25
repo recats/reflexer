@@ -26,8 +26,11 @@ import { Grid } from 'reflexer';
 ```js
 import { Row } from 'reflexer';
 
+# <params>={{ xs: <value> }} || <params>="<value>"
+
 <Row
-  flexWrap={{ xs: *, sm: *, ... }}
+  flexWrap={{ xs: * }}
+  # or such an option flexWrap="wrap"
   flexDirection={{ xs: *, sm: *, ... }}
   justifyContent={{ xs: *, sm: *, ... }}
   alignItems={{ xs: *, sm: *, md: *, ... }}
