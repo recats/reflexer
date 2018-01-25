@@ -30,8 +30,19 @@ export const media = Object.keys(sizeMedia).reduce((accumulator, label) => {
 
 export const checkPercent = (size: number) => `${100 / (12 / size)}%`;
 
-export const checkWidth = (object: Object) => (
-  Object.keys(object).map((key) => {
+const checkTypeParams = (params: Object | string | number): Object => {
+  let values = {};
+  if (typeof params === 'string' || typeof params === 'number') {
+    values = { xs: params };
+  } else if (typeof params === 'object') {
+    values = params;
+  }
+  return values;
+};
+
+export const checkWidth = (params: Object | number) => {
+  const object = checkTypeParams(params);
+  return Object.keys(object).map((key) => {
     let $size = object[key] <= 12 ? object[key] : 12;
 
     if (object[key] > 12) {
@@ -50,11 +61,16 @@ export const checkWidth = (object: Object) => (
       flex-basis: ${percent};
       max-width: ${percent};
     `;
-  })
-);
+  });
+};
 
-export const mediaProperty = (object: Object, paramsKey: string, calculate?: Function) => (
-  Object.keys(object).map((key) => {
+export const mediaProperty = (
+  params: Object | string | number,
+  paramsKey: string,
+  calculate?: Function,
+) => {
+  const object = checkTypeParams(params);
+  return Object.keys(object).map((key) => {
     if (key === 'xs') {
       return `${paramsKey}: ${calculate ? calculate(object[key]) : object[key]};`;
     }
@@ -62,5 +78,5 @@ export const mediaProperty = (object: Object, paramsKey: string, calculate?: Fun
     return media[key]`
       ${paramsKey}: ${object[key]};
     `;
-  })
-);
+  });
+};

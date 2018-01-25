@@ -26,8 +26,11 @@ import { Grid } from 'reflexer';
 ```js
 import { Row } from 'reflexer';
 
+# <params>={{ xs: <value> }} || <params>="<value>"
+
 <Row
-  flexWrap={{ xs: *, sm: *, ... }}
+  flexWrap={{ xs: * }}
+  # or such an option flexWrap="wrap"
   flexDirection={{ xs: *, sm: *, ... }}
   justifyContent={{ xs: *, sm: *, ... }}
   alignItems={{ xs: *, sm: *, md: *, ... }}
@@ -41,8 +44,11 @@ import { Row } from 'reflexer';
 ```js
 import { Col } from 'reflexer';
 
+# <params>={{ xs: <value> }} || <params>="<value>"
+
 <Col
-  basis={{ xs: 12, sm: 6 }}
+  basis={{ xs: 12 }}
+  # or such an option basis={12}
   order={{ xs: 1, sm: 2, md: 3 }}
   offset={{ xs: 1, sm: 3 }}
 >
