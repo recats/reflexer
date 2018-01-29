@@ -65,9 +65,12 @@ import { ThemeProvider } from 'styled-components';
 
 const theme = {
   reflexer: {
-    gridFluid: *,
-    rowGutter: *,
-    colGutter: *,
+    gridFluid: '2rem',
+    # or griudFluid: { xs: '2rem' }
+    rowGutter: '-0.5rem',
+    # or rowGutter: { xs: '-0.5rem', sm: '-1rem' }
+    colGutter: '0.5rem',
+    # or colGutter: { xs: '0.5rem', sm: '1rem', md: .... }
   }
 };
 

@@ -6,8 +6,8 @@ export const Row = props => css`
   box-sizing: border-box;
   display: flex;
   flex: 0 1 auto;
-  margin-right: ${propsChecker(props, 'rowGutter')};
-  margin-left: ${propsChecker(props, 'rowGutter')};
+  ${mediaProperty(propsChecker(props, 'rowGutter'), 'margin-left')};
+  ${mediaProperty(propsChecker(props, 'rowGutter'), 'margin-right')};
   ${props.flexDirection && mediaProperty(props.flexDirection, 'flex-direction')};
   ${props.flexWrap && mediaProperty(props.flexWrap, 'flex-wrap')};
   ${props.justifyContent && mediaProperty(props.justifyContent, 'justify-content')};
