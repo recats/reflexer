@@ -32,4 +32,4 @@ build
 npm-debug.log
 node_modules/
 flow-typed/
-yarn-error
+yarn-error.log
