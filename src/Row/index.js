@@ -29,9 +29,7 @@ const Styled = styled(({
   children,
 ))`${Row}`;
 
-const FlexElement = (props: Props) => (
-  <Styled {...props} />
-);
+const FlexElement = (props: Props) => <Styled {...props} />;
 
 FlexElement.defaultProps = {
   theme: undefined,
