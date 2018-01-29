@@ -71,7 +71,7 @@ export const mediaProperty = (
 ) => {
   const object = checkTypeParams(params);
   return Object.keys(object).map((key) => {
-    if (key === 'xs') {
+    if (calculate) {
       return `${paramsKey}: ${calculate ? calculate(object[key]) : object[key]};`;
     }
 
