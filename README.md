@@ -44,7 +44,7 @@ import { Row } from 'reflexer';
 ```js
 import { Col } from 'reflexer';
 
-# <params>={{ xs: <value> }} || <params>="<value>"
+# <params>={{ xs: <value | 'auto'> }} || <params>="<value | 'auto'>"
 
 <Col
   basis={{ xs: 12 }}

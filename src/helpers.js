@@ -43,6 +43,19 @@ const checkTypeParams = (params: Object | string | number): Object => {
 export const checkWidth = (params: Object | number) => {
   const object = checkTypeParams(params);
   return Object.keys(object).map((key) => {
+    if (object[key] === 'auto') {
+      // $FlowIssues
+      return media[key]`
+        flex-grow: 1;
+        flex-basis: 0;
+        max-width: 100%;
+      `;
+    }
+
+    if (typeof object[key] === 'string') {
+      console.warn('value must be a number', object[key]);
+    }
+
     let $size = object[key] <= 12 ? object[key] : 12;
 
     if (object[key] > 12) {
