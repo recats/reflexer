@@ -6,9 +6,7 @@ import styled, { withTheme } from 'styled-components';
 import { Row } from './styled';
 import * as consts from './const';
 
-import type {
-  FlowFlexWrap, FlowFlexDirection, FlowAlignContent, FlowAlignItems, FlowJustifyContnet,
-} from './const';
+import type { FlowFlexWrap, FlowFlexDirection, FlowAlignContent, FlowAlignItems, FlowJustifyContnet } from './const';
 
 type Props = {
   flexWrap?: FlowFlexWrap,

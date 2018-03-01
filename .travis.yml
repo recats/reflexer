@@ -13,6 +13,5 @@ before_script:
 
 script:
   - yarn run test
-  - yarn run flow
 
 cache: yarn
