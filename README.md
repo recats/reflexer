@@ -101,7 +101,7 @@ export const sizeMedia = {
 ## Flow
 create in folder 'flow-typed' and in it file 'reflexer.js'
 ```
-declare module 'reflexer' {  declare var exports: any;  }
+declare module 'reflexer' {  declare module.exports: any;  }
 ```
 and .flowconfig add
 ```
