@@ -6,7 +6,7 @@ import { propsChecker, mediaProperty } from '../helpers';
 export const Grid = props => css`
   margin-left: auto;
   margin-right: auto;
-  ${props.fluid && `
+  ${props.fluid && css`
     ${mediaProperty(propsChecker(props, 'gridFluid'), 'padding-left')};
     ${mediaProperty(propsChecker(props, 'gridFluid'), 'padding-right')};
   `}
