@@ -42,6 +42,8 @@ const checkTypeParams = (params: Object | string | number): Object => {
 
 export const checkWidth = (params: Object | number) => {
   const object = checkTypeParams(params);
+
+  // $FlowIssues
   return Object.keys(object).map((key) => {
     if (object[key] === 'auto') {
       // $FlowIssues
@@ -68,7 +70,6 @@ export const checkWidth = (params: Object | number) => {
     }
 
     const percent = checkPercent($size);
-
     // $FlowIssues
     return media[key]`
       flex-basis: ${percent};
@@ -83,9 +84,12 @@ export const mediaProperty = (
   calculate?: Function,
 ) => {
   const object = checkTypeParams(params);
+  // $FlowIssues
   return Object.keys(object).map((key) => {
     if (calculate) {
-      return `${paramsKey}: ${calculate ? calculate(object[key]) : object[key]};`;
+      return media[key]`
+        ${paramsKey}: ${calculate ? calculate(object[key]) : object[key]};
+      `;
     }
 
     return media[key]`
