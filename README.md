@@ -112,4 +112,4 @@ and .flowconfig add
 ## TODO
 - [ ] Test
 - [ ] Coveralls
-- [ ] Demo Stand
+- [x] Demo Stand
