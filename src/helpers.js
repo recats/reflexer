@@ -1,53 +1,56 @@
 // @flow
-import { css } from 'styled-components';
+import generateMediaQuery from './generatorMediaQuery';
 
 export const theme = {
   reflexer: {
     gridFluid: '2rem',
     rowGutter: '-0.5rem',
     colGutter: '0.5rem',
+    size: {
+      xl: 75,
+      lg: 64,
+      md: 48,
+      sm: 30,
+      xs: 0,
+    },
   },
-};
-
-export const sizeMedia = {
-  xl: 75, lg: 64, md: 48, sm: 30, xs: 0,
 };
 
 export const propsChecker = (props: Object, entity: string) => (
   props.theme.reflexer ? props.theme.reflexer[entity] : theme.reflexer[entity]
 );
 
-export const media = Object.keys(sizeMedia).reduce((accumulator, label) => {
-  const accum = accumulator;
-  accum[label] = (...args: *) => css`
-    @media (min-width: ${sizeMedia[label]}em) {
-      ${css(...args)}
-    }
-  `;
-  return accum;
-}, {});
+export const media = (props: Object) => {
+  const sizeMedia = propsChecker(props, 'size');
+  return Object.keys(sizeMedia).reduce((accumulator, label) => {
+    const accum = accumulator;
+    accum[label] = (...args: *) => generateMediaQuery(sizeMedia[label], args);
+    return accum;
+  }, {});
+};
 
 
 export const checkPercent = (size: number) => `${100 / (12 / size)}%`;
 
-const checkTypeParams = (params: Object | string | number): Object => {
+const checkTypeParams = (props: Object, params: Object | string | number): Object => {
   let values = {};
   if (typeof params === 'string' || typeof params === 'number') {
-    values = { xs: params };
+    const firstValue = Object.keys(propsChecker(props, 'size'));
+    values = { [firstValue[0]]: params };
   } else if (typeof params === 'object') {
     values = params;
   }
   return values;
 };
 
-export const checkWidth = (params: Object | number) => {
-  const object = checkTypeParams(params);
+export const checkWidth = (props: Object, params: Object | number) => {
+  const object = checkTypeParams(props, params);
 
   // $FlowIssues
   return Object.keys(object).map((key) => {
     if (object[key] === 'auto') {
       // $FlowIssues
-      return media[key]`
+      return media(props)[key]`
         flex-grow: 1;
         flex-basis: 0;
         max-width: 100%;
@@ -71,7 +74,7 @@ export const checkWidth = (params: Object | number) => {
 
     const percent = checkPercent($size);
     // $FlowIssues
-    return media[key]`
+    return media(props)[key]`
       flex-basis: ${percent};
       max-width: ${percent};
     `;
@@ -79,20 +82,21 @@ export const checkWidth = (params: Object | number) => {
 };
 
 export const mediaProperty = (
+  props: Object,
   params: Object | string | number,
   paramsKey: string,
   calculate?: Function,
 ) => {
-  const object = checkTypeParams(params);
+  const object = checkTypeParams(props, params);
   // $FlowIssues
   return Object.keys(object).map((key) => {
     if (calculate) {
-      return media[key]`
+      return media(props)[key]`
         ${paramsKey}: ${calculate ? calculate(object[key]) : object[key]};
       `;
     }
 
-    return media[key]`
+    return media(props)[key]`
       ${paramsKey}: ${object[key]};
     `;
   });

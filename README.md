@@ -70,9 +70,9 @@ const theme = {
     gridFluid: '2rem',
     # or griudFluid: { xs: '2rem' }
     rowGutter: '-0.5rem',
-    # or rowGutter: { xs: '-0.5rem', sm: '-1rem' }
+    # or rowGutter: { xs: '-0.5rem', retina: '-1rem' }
     colGutter: '0.5rem',
-    # or colGutter: { xs: '0.5rem', sm: '1rem', md: .... }
+    # or colGutter: { xs: '0.5rem', retina: '1rem', md: .... }
   }
 };
 
@@ -92,12 +92,21 @@ export const theme = {
     gridFluid: '2rem',
     rowGutter: '-0.5rem',
     colGutter: '0.5rem',
+    size: {
+      lg: 64,
+      md: 48,
+      sm: 30,
+      xs: 0,
+    },
   },
 };
-
-export const sizeMedia = {
-  xl: '75em', lg: '64em', md: '48em', sm: '30em', xs: 0,
-};
+// sizes variants
+{
+  xs: [{ value: 32, type: 'rem', media: 'min-width' }, { value: 72, type: 'rem', media: 'max-width' }], // -> @media (min-width: 32rem) and (max-width: 72rem)
+  sm: { value: 32, type: 'rem' /* optional and default 'em' */, media: 'min-width' /* optional and default 'min-width' */ },  // -> @media (min-width: 32rem)
+  md: 72, // -> @media (min-width: 72em)
+  retina: '(-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)', // -> @media (-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)
+}
 ```
 
 ## Flow
