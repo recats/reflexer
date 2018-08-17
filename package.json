@@ -32,7 +32,7 @@
     "eslint-plugin-react": "^7.10.0",
     "flow-bin": "^0.79.0",
     "husky": "^0.14.3",
-    "nwb": "^0.22.0"
+    "nwb": "^0.23.0"
   },
   "dependencies": {
     "react": "^16.4.1",
