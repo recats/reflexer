@@ -1,5 +1,5 @@
 
-<img src="https://user-images.githubusercontent.com/9702154/44300665-9425a000-a313-11e8-8e75-1b26791f326f.png" width="200" />
+<img src="https://user-images.githubusercontent.com/9702154/44300687-f1b9ec80-a313-11e8-8627-ca99e9790b14.png" width="200" />
 
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/stk-dmitry/reflexer.svg)](https://greenkeeper.io/)
