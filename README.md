@@ -1,4 +1,6 @@
-# reflexer
+
+<img src="https://user-images.githubusercontent.com/9702154/44300665-9425a000-a313-11e8-8e75-1b26791f326f.png" width="200" />
+
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/stk-dmitry/reflexer.svg)](https://greenkeeper.io/)
 [![npm](https://img.shields.io/npm/v/reflexer.svg)](https://www.npmjs.com/package/reflexer)
