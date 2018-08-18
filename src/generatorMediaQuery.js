@@ -1,3 +1,4 @@
+/* eslint no-else-return: 0 */
 import { css } from 'styled-components';
 
 export default (value, args) => {

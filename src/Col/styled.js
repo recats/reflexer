@@ -1,7 +1,7 @@
 /* eslint arrow-body-style: ["error", "as-needed"] */
 import { css } from 'styled-components';
 
-import { checkWidth, mediaProperty, checkPercent, propsChecker } from '../helpers';
+import { checkWidth, mediaProperty, propsChecker } from '../helpers';
 
 // eslint-disable-next-line
 export const Col = props => css`
@@ -10,6 +10,6 @@ export const Col = props => css`
   ${mediaProperty(props, propsChecker(props, 'colGutter'), 'padding-left')};
   ${mediaProperty(props, propsChecker(props, 'colGutter'), 'padding-right')};
   ${props.order && mediaProperty(props, props.order, 'order')};
-  ${props.offset && mediaProperty(props, props.offset, 'margin-left', checkPercent)};
+  ${props.offset && mediaProperty(props, props.offset, 'margin-left', true)};
   ${props.basis && checkWidth(props, props.basis)};
 `;

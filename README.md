@@ -9,8 +9,8 @@
 
 # Install
 ```sh
-yarn add reflexer
-npm install reflexer
+yarn add reflexer@beta
+npm install reflexer@beta
 ```
 
 ## Grid
@@ -73,6 +73,7 @@ const theme = {
     # or rowGutter: { xs: '-0.5rem', retina: '-1rem' }
     colGutter: '0.5rem',
     # or colGutter: { xs: '0.5rem', retina: '1rem', md: .... }
+    column: 20,
     size: {
       xs: [{ value: 32, type: 'rem', media: 'min-width' }, { value: 72, type: 'rem', media: 'max-width' }],
       sm: { value: 32, type: 'rem', media: 'min-width' },
@@ -98,7 +99,9 @@ export const theme = {
     gridFluid: '2rem',
     rowGutter: '-0.5rem',
     colGutter: '0.5rem',
+    column: 12,
     size: {
+      xl: 75,
       lg: 64,
       md: 48,
       sm: 30,
