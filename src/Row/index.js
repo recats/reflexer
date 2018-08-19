@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
+// $FlowIssues
 import styled, { withTheme } from 'styled-components';
 
 import { Row } from './styled';
@@ -44,5 +45,5 @@ FlexElement.defaultProps = {
   alignContent: { xs: consts.alignContent.stretch },
 };
 
-// $FlowIssues
+
 export default withTheme(FlexElement);

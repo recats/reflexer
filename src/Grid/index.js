@@ -1,6 +1,7 @@
 // @flow
 import type { Node } from 'react';
 import React from 'react';
+// $FlowIssues
 import styled from 'styled-components';
 import { Grid } from './styled';
 
@@ -23,5 +24,4 @@ GridElement.defaultProps = {
   fluid: false,
 };
 
-// $FlowIssues
 export default GridElement;

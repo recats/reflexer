@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
+// $FlowIssues
 import styled, { withTheme } from 'styled-components';
 
 import { Col } from './styled';
@@ -30,5 +31,4 @@ ColElement.defaultProps = {
   theme: undefined,
 };
 
-// $FlowIssues
 export default withTheme(ColElement);
