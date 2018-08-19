@@ -30,7 +30,7 @@ export const media = (props: Object, key: string) => {
   }, {});
 
   if (!Object.prototype.hasOwnProperty.call(sizeMedia, key)) {
-    console.warn(`in ${JSON.stringify(sizeMedia)} no '${key}'`);
+    console.error(`in ${JSON.stringify(sizeMedia)} no '${key}'`);
   }
 
   return acm[key];

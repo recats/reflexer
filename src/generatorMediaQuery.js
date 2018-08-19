@@ -2,19 +2,19 @@
 import { css } from 'styled-components';
 
 export default (value, args) => {
-  const getObj = data => ({ media: 'min-width', type: 'rem', ...data });
+  const getObj = data => ({ querie: 'min-width', unit: 'em', ...data });
 
   const style = css(...args);
 
   if (typeof value === 'object' && value.constructor === Object) {
     const obj = getObj(value);
     return css`
-      @media (${obj.media}: ${obj.value}${obj.type}) { ${style} }
+      @media (${obj.querie}: ${obj.size}${obj.unit}) { ${style} }
     `;
   } else if (Array.isArray(value)) {
     const query = value.map((e) => {
       const obj = getObj(e);
-      return `(${obj.media}: ${obj.value}${obj.type})`;
+      return `(${obj.querie}: ${obj.size}${obj.unit})`;
     });
     return css`
       @media ${query.join(' and ')} { ${style} }

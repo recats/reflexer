@@ -75,8 +75,8 @@ const theme = {
     # or colGutter: { xs: '0.5rem', retina: '1rem', md: .... }
     column: 20,
     size: {
-      xs: [{ value: 32, type: 'rem', media: 'min-width' }, { value: 72, type: 'rem', media: 'max-width' }],
-      sm: { value: 32, type: 'rem', media: 'min-width' },
+      xs: [{ size: 32, unit: 'rem', querie: 'min-width' }, { size: 72, unit: 'rem', querie: 'max-width' }],
+      sm: { size: 32, unit: 'rem', querie: 'min-width' },
       neRetina: 72,
       retia: '(-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)',
     },
@@ -91,6 +91,22 @@ ReactDOM.render(
 );
 ```
 
+## Custom Media Queries
+```js
+{
+  column: 20,
+  {
+    xSmall: [{ size: 32, unit: 'rem', querie: 'min-width' }, { size: 72, unit: 'rem', querie: 'max-width' }], // -> @media (min-width: 32rem) and (max-width: 72rem)
+    sm: { size: 32, unit: 'rem' /* optional and default 'em' */, media: 'min-width' /* optional and default 'min-width' */ },  // -> @media (min-width: 32rem)
+    md: 72, // -> @media (min-width: 72em)
+    retina: '(-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)', // -> @media (-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)
+  }
+}
+// Usage
+return (
+ <Row justifyContent={{ xSmall: 19, retina: 10, sm: 15, md: 2 }} />
+)
+```
 
 ## Default params
 ```js
@@ -109,13 +125,6 @@ export const theme = {
     },
   },
 };
-// sizes variants
-{
-  xs: [{ value: 32, type: 'rem', media: 'min-width' }, { value: 72, type: 'rem', media: 'max-width' }], // -> @media (min-width: 32rem) and (max-width: 72rem)
-  sm: { value: 32, type: 'rem' /* optional and default 'em' */, media: 'min-width' /* optional and default 'min-width' */ },  // -> @media (min-width: 32rem)
-  md: 72, // -> @media (min-width: 72em)
-  retina: '(-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)', // -> @media (-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)
-}
 ```
 
 ## Flow
