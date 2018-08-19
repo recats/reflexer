@@ -31,4 +31,5 @@ ColElement.defaultProps = {
   theme: undefined,
 };
 
+// $FlowIssues
 export default withTheme(ColElement);

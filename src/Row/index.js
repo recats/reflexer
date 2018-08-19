@@ -45,5 +45,5 @@ FlexElement.defaultProps = {
   alignContent: { xs: consts.alignContent.stretch },
 };
 
-
+// $FlowIssues
 export default withTheme(FlexElement);

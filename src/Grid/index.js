@@ -24,4 +24,5 @@ GridElement.defaultProps = {
   fluid: false,
 };
 
+// $FlowIssues
 export default GridElement;
