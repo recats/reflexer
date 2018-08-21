@@ -5,7 +5,6 @@
 [![Build Status](https://travis-ci.org/stk-dmitry/reflexer.svg?branch=master)](https://travis-ci.org/stk-dmitry/reflexer)
 [![dependencies Status](https://david-dm.org/stk-dmitry/reflexer/status.svg)](https://david-dm.org/stk-dmitry/reflexer)
 [![devDependencies Status](https://david-dm.org/stk-dmitry/reflexer/dev-status.svg)](https://david-dm.org/stk-dmitry/reflexer?type=dev)
-[![module formats: umd, cjs, esm]](https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg)
 
 # Install
 ```sh
