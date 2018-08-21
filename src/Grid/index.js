@@ -5,8 +5,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid } from './styled';
 
-import { validationProps } from '../helpers';
-
 type Props = {
   children: Node,
   fluid?: boolean,
@@ -15,15 +13,11 @@ type Props = {
 
 const Styled = styled(({
   children, fluid, tag = 'div', ...props
-}: Props) => {
-  validationProps({ fluid });
-
-  return React.createElement(
-    tag,
-    props,
-    children,
-  );
-})`${Grid}`;
+}: Props) => React.createElement(
+  tag,
+  props,
+  children,
+))`${Grid}`;
 
 const GridElement = (props: Props) => <Styled {...props} />;
 
