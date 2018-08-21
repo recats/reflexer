@@ -43,7 +43,7 @@ export const media = (props: Object, key: string) => {
   }, {});
 
   if (!Object.prototype.hasOwnProperty.call(sizeMedia, key)) {
-    console.error(`in ${JSON.stringify(sizeMedia)} no '${key}'`);
+    console.error(`@@reflexer. in ${JSON.stringify(sizeMedia)} no '${key}'`);
   }
 
   return acm[key];
@@ -74,17 +74,17 @@ export const checkWidth = (props: Object, params: Object | number) => {
     }
 
     if (typeof object[key] === 'string') {
-      console.warn('value must be a number', object[key]);
+      console.warn('@@reflexer. value must be a number', object[key]);
     }
 
     let $size = object[key] <= countColumn ? object[key] : countColumn;
 
     if (object[key] > countColumn) {
-      console.warn(`The ->${key}<- must be <= ${countColumn} for the <Col /> component`);
+      console.warn(`@@reflexer. The ->${key}<- must be <= ${countColumn} for the <Col /> component`);
     }
 
     if (key !== undefined && key === 'xs' && !object[key]) {
-      console.warn('The `xs` is not specified for the <Col /> component');
+      console.warn('@@reflexer. The `xs` is not specified for the <Col /> component');
       $size = countColumn;
     }
 
