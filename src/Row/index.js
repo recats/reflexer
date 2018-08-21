@@ -7,6 +7,8 @@ import styled, { withTheme } from 'styled-components';
 import { Row } from './styled';
 import * as consts from './const';
 
+import { validationProps } from '../helpers';
+
 import type {
   FlowFlexWrap,
   FlowFlexDirection,
@@ -23,21 +25,28 @@ type Props = {
   alignContent?: FlowAlignContent,
   children: Node,
   theme?: Object,
+  tag?: string,
 }
 
 
 const Styled = styled(({
-  children, flexDirection, flexWrap, justifyContent, alignItems, alignContent, theme, ...props
-}: Props) => React.createElement(
-  'div',
-  props,
-  children,
-))`${Row}`;
+  children, flexDirection, flexWrap, justifyContent, alignItems, alignContent, theme, tag = 'div', ...props
+}: Props) => {
+  validationProps({
+    flexDirection, flexWrap, justifyContent, alignItems, alignContent,
+  });
+  return React.createElement(
+    tag,
+    props,
+    children,
+  );
+})`${Row}`;
 
 const FlexElement = (props: Props) => <Styled {...props} />;
 
 FlexElement.defaultProps = {
   theme: undefined,
+  tag: 'div',
   flexWrap: { xs: consts.flexWrap.wrap },
   flexDirection: { xs: consts.flexDirection.row },
   justifyContent: { xs: consts.justifyContent.flexStart },

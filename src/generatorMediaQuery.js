@@ -1,12 +1,14 @@
 /* eslint no-else-return: 0 */
 import { css } from 'styled-components';
 
+import { isObject } from './helpers';
+
 export default (value, args) => {
   const getObj = data => ({ querie: 'min-width', unit: 'em', ...data });
 
   const style = css(...args);
 
-  if (typeof value === 'object' && value.constructor === Object) {
+  if (isObject(value)) {
     const obj = getObj(value);
     return css`
       @media (${obj.querie}: ${obj.size}${obj.unit}) { ${style} }

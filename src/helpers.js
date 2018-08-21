@@ -1,5 +1,6 @@
 // @flow
 import generateMediaQuery from './generatorMediaQuery';
+import { RowValues } from './Row/const';
 
 export const theme = {
   reflexer: {
@@ -17,8 +18,20 @@ export const theme = {
   },
 };
 
-export const propsChecker = (props: Object, entity: string) => (
-  props.theme.reflexer ? props.theme.reflexer[entity] : theme.reflexer[entity]
+export const isObject = (object: *) => (
+  typeof object === 'object' && object.constructor === Object
+);
+
+export const propsChecker = (props: Object, entity: string) => {
+  const newProps = {
+    ...props,
+    theme: { ...props.theme, reflexer: { ...theme.reflexer, ...props.theme.reflexer } },
+  };
+  return newProps.theme.reflexer[entity];
+};
+
+export const checkPercent = (props: Object, size: number) => (
+  `${100 / (+propsChecker(props, 'column') / size)}%`
 );
 
 export const media = (props: Object, key: string) => {
@@ -36,10 +49,6 @@ export const media = (props: Object, key: string) => {
   return acm[key];
 };
 
-
-export const checkPercent = (props: Object, size: number) => (
-  `${100 / (+propsChecker(props, 'column') / size)}%`
-);
 
 const checkTypeParams = (props: Object, params: Object | string | number): Object => {
   let values = {};
@@ -105,5 +114,39 @@ export const mediaProperty = (
     return media(props, key)`
       ${paramsKey}: ${object[key]};
     `;
+  });
+};
+
+export const validationProps = (validationObject: Object) => {
+  Object.keys(validationObject).forEach((key) => {
+    const objectValue = Object.values(RowValues[key] || {});
+    const inner = validationObject[key];
+
+    const warning = (value: string) => console.warn(`
+@@reflexer.
+${value} is not supported.
+for ${key} you can use one of these [${objectValue.toString()}].
+`);
+
+    if (objectValue.length) {
+      if (typeof inner === 'string') {
+        if (!objectValue.includes(inner.trim())) {
+          return warning(inner);
+        }
+        return false;
+      }
+      if (isObject(inner)) {
+        return Object.keys(inner).map(innerKey => (
+          objectValue.includes(inner[innerKey]) || warning(`${inner[innerKey]} in ${innerKey}`)
+        ));
+      }
+      if (typeof inner !== 'string' || !isObject(inner)) {
+        return console.warn(`
+@@reflexer.
+${typeof inner} - ${inner} is not supported
+`);
+      }
+    }
+    return false;
   });
 };

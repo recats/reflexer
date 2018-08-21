@@ -3,9 +3,9 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/stk-dmitry/reflexer.svg)](https://greenkeeper.io/)
 [![npm](https://img.shields.io/npm/v/reflexer.svg)](https://www.npmjs.com/package/reflexer)
 [![Build Status](https://travis-ci.org/stk-dmitry/reflexer.svg?branch=master)](https://travis-ci.org/stk-dmitry/reflexer)
-![Recats Digital](https://img.shields.io/badge/recats-digital-1abc9c.svg?style=flat)
 [![dependencies Status](https://david-dm.org/stk-dmitry/reflexer/status.svg)](https://david-dm.org/stk-dmitry/reflexer)
 [![devDependencies Status](https://david-dm.org/stk-dmitry/reflexer/dev-status.svg)](https://david-dm.org/stk-dmitry/reflexer?type=dev)
+[![module formats: umd, cjs, esm](https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg)
 
 # Install
 ```sh
@@ -105,6 +105,17 @@ ReactDOM.render(
 // Usage
 return (
  <Row justifyContent={{ xSmall: 19, retina: 10, sm: 15, md: 2 }} />
+)
+```
+
+## Custom Tag
+```js
+return (
+ <Row tag="span">
+  <Col basis={12} tag={StyledElement}>
+    ...
+  </Col>
+ </Row>
 )
 ```
 
