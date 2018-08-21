@@ -140,12 +140,10 @@ for ${key} you can use one of these [${objectValue.toString()}].
           objectValue.includes(inner[innerKey]) || warning(`${inner[innerKey]} in ${innerKey}`)
         ));
       }
-      if (typeof inner !== 'string' || !isObject(inner)) {
-        return console.warn(`
+      return console.warn(`
 @@reflexer.
 ${typeof inner} - ${inner} is not supported
 `);
-      }
     }
     return false;
   });
