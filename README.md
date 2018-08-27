@@ -1,9 +1,8 @@
-# reflexer
+<img src="https://user-images.githubusercontent.com/9702154/44400365-89f1e480-a553-11e8-9c02-09cb2c28b754.png" width="200" />
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/stk-dmitry/reflexer.svg)](https://greenkeeper.io/)
 [![npm](https://img.shields.io/npm/v/reflexer.svg)](https://www.npmjs.com/package/reflexer)
 [![Build Status](https://travis-ci.org/stk-dmitry/reflexer.svg?branch=master)](https://travis-ci.org/stk-dmitry/reflexer)
-![Recats Digital](https://img.shields.io/badge/recats-digital-1abc9c.svg?style=flat)
 [![dependencies Status](https://david-dm.org/stk-dmitry/reflexer/status.svg)](https://david-dm.org/stk-dmitry/reflexer)
 [![devDependencies Status](https://david-dm.org/stk-dmitry/reflexer/dev-status.svg)](https://david-dm.org/stk-dmitry/reflexer?type=dev)
 
@@ -70,9 +69,16 @@ const theme = {
     gridFluid: '2rem',
     # or griudFluid: { xs: '2rem' }
     rowGutter: '-0.5rem',
-    # or rowGutter: { xs: '-0.5rem', sm: '-1rem' }
+    # or rowGutter: { xs: '-0.5rem', retina: '-1rem' }
     colGutter: '0.5rem',
-    # or colGutter: { xs: '0.5rem', sm: '1rem', md: .... }
+    # or colGutter: { xs: '0.5rem', retina: '1rem', md: .... }
+    column: 20,
+    size: {
+      xs: [{ size: 32, unit: 'rem', querie: 'min-width' }, { size: 72, unit: 'rem', querie: 'max-width' }],
+      sm: { size: 32, unit: 'rem', querie: 'min-width' },
+      neRetina: 72,
+      retia: '(-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)',
+    },
   }
 };
 
@@ -84,6 +90,33 @@ ReactDOM.render(
 );
 ```
 
+## Custom Media Queries
+```js
+{
+  column: 20,
+  {
+    xSmall: [{ size: 32, unit: 'rem', querie: 'min-width' }, { size: 72, unit: 'rem', querie: 'max-width' }], // -> @media (min-width: 32rem) and (max-width: 72rem)
+    sm: { size: 32, unit: 'rem' /* optional and default 'em' */, media: 'min-width' /* optional and default 'min-width' */ },  // -> @media (min-width: 32rem)
+    md: 72, // -> @media (min-width: 72em)
+    retina: '(-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)', // -> @media (-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)
+  }
+}
+// Usage
+return (
+ <Row justifyContent={{ xSmall: 19, retina: 10, sm: 15, md: 2 }} />
+)
+```
+
+## Custom Tag
+```js
+return (
+ <Row tag="span">
+  <Col basis={12} tag={StyledElement}>
+    ...
+  </Col>
+ </Row>
+)
+```
 
 ## Default params
 ```js
@@ -92,11 +125,15 @@ export const theme = {
     gridFluid: '2rem',
     rowGutter: '-0.5rem',
     colGutter: '0.5rem',
+    column: 12,
+    size: {
+      xl: 75,
+      lg: 64,
+      md: 48,
+      sm: 30,
+      xs: 0, # ‘xs’ is a minimum width that reflexer will allow. By default it’s set to zero. If it is set to 30, then min-width: 30em will be generated
+    },
   },
-};
-
-export const sizeMedia = {
-  xl: '75em', lg: '64em', md: '48em', sm: '30em', xs: 0,
 };
 ```
 

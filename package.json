@@ -1,18 +1,22 @@
 {
   "name": "reflexer",
-  "version": "1.0.4",
+  "version": "2.1.3",
   "description": "React flexbox grid library",
   "main": "lib/index.js",
   "repository": "git@github.com:stk-dmitry/reflexer.git",
-  "author": "__strelkov <stkdmitry@ya.ru>, recats",
+  "author": "__strelkov <stkdmitry@ya.ru>, @recats",
   "license": "MIT",
   "scripts": {
     "build": "nwb build-react-component",
     "flow": "./node_modules/.bin/flow",
     "flow:build": "bash ./flow.sh",
     "lint:js": "./node_modules/.bin/eslint ./src --ext=js,jsx",
-    "test": "yarn lint:js && yarn flow:build && yarn flow",
-    "precommit": "yarn test"
+    "test": "yarn lint:js && yarn flow:build && yarn flow"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test"
+    }
   },
   "keywords": [
     "flexbox",
@@ -22,22 +26,21 @@
     "react-component"
   ],
   "devDependencies": {
-    "babel-eslint": "^8.2.5",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-compat": "^2.4.0",
-    "eslint-plugin-flowtype": "^2.49.3",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.10.0",
-    "flow-bin": "^0.79.0",
-    "husky": "^0.14.3",
-    "nwb": "^0.22.0"
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.79.1",
+    "husky": "^1.0.0-rc.13",
+    "nwb": "^0.23.0"
   },
   "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "styled-components": "^3.3.3"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "styled-components": "^3.4.5"
   },
   "peerDependencies": {
     "flow-typed": "^2.5.1"

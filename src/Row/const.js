@@ -16,8 +16,8 @@ export const justifyContent = {
   flexStart: 'flex-start',
   flexEnd: 'flex-end',
   center: 'center',
-  spaceAround: ' space-around',
-  spaceBetween: ' space-between',
+  spaceAround: 'space-around',
+  spaceBetween: 'space-between',
 };
 
 export const alignItems = {
@@ -35,6 +35,10 @@ export const alignContent = {
   flexEnd: 'flex-end',
   spaceAround: 'space-around',
   spaceBetween: 'space-between',
+};
+
+export const RowValues = {
+  alignContent, alignItems, justifyContent, flexDirection, flexWrap,
 };
 
 //
