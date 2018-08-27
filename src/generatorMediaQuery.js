@@ -22,9 +22,12 @@ export default (value, args) => {
       @media ${query.join(' and ')} { ${style} }
     `;
   } else if (typeof value === 'number') {
-    return css`
-      @media (min-width: ${value}em) { ${style} }
-    `;
+    if (value > 0) {
+      return css`
+        @media (min-width: ${value}em) { ${style} }
+      `;
+    }
+    return css`${style}`;
   } else if (typeof value === 'string') {
     return css`
       @media ${value} { ${style} }

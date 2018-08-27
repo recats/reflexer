@@ -2,6 +2,10 @@
 import generateMediaQuery from './generatorMediaQuery';
 import { RowValues } from './Row/const';
 
+import pck from '../package.json';
+
+const lib = `@@${pck.name} - ${pck.version}`;
+
 export const theme = {
   reflexer: {
     gridFluid: '2rem',
@@ -22,6 +26,7 @@ export const isObject = (object: *) => (
   typeof object === 'object' && object.constructor === Object
 );
 
+
 export const propsChecker = (props: Object, entity: string) => {
   const newProps = {
     ...props,
@@ -30,12 +35,14 @@ export const propsChecker = (props: Object, entity: string) => {
   return newProps.theme.reflexer[entity];
 };
 
+const getMediSize = (props: Object) => ({ xs: 0, ...propsChecker(props, 'size') });
+
 export const checkPercent = (props: Object, size: number) => (
   `${100 / (+propsChecker(props, 'column') / size)}%`
 );
 
 export const media = (props: Object, key: string) => {
-  const sizeMedia = propsChecker(props, 'size');
+  const sizeMedia = getMediSize(props);
   const acm = Object.keys(sizeMedia).reduce((accumulator, label) => {
     const accum = accumulator;
     accum[label] = (...args: *) => generateMediaQuery(sizeMedia[label], args);
@@ -43,7 +50,7 @@ export const media = (props: Object, key: string) => {
   }, {});
 
   if (!Object.prototype.hasOwnProperty.call(sizeMedia, key)) {
-    console.error(`@@reflexer. in ${JSON.stringify(sizeMedia)} no '${key}'`);
+    console.error(`${lib} in ${JSON.stringify(sizeMedia)} no '${key}'`);
   }
 
   return acm[key];
@@ -53,8 +60,7 @@ export const media = (props: Object, key: string) => {
 const checkTypeParams = (props: Object, params: Object | string | number): Object => {
   let values = {};
   if (typeof params === 'string' || typeof params === 'number') {
-    const firstValue = Object.keys(propsChecker(props, 'size'));
-    values = { [firstValue[0]]: params };
+    values = { xs: params };
   } else if (typeof params === 'object') {
     values = params;
   }
@@ -74,17 +80,17 @@ export const checkWidth = (props: Object, params: Object | number) => {
     }
 
     if (typeof object[key] === 'string') {
-      console.warn('@@reflexer. value must be a number', object[key]);
+      console.warn(`${lib} value must be a number`, object[key]);
     }
 
     let $size = object[key] <= countColumn ? object[key] : countColumn;
 
     if (object[key] > countColumn) {
-      console.warn(`@@reflexer. The ->${key}<- must be <= ${countColumn} for the <Col /> component`);
+      console.warn(`${lib} The ->${key}<- must be <= ${countColumn} for the <Col /> component`);
     }
 
     if (key !== undefined && key === 'xs' && !object[key]) {
-      console.warn('@@reflexer. The `xs` is not specified for the <Col /> component');
+      console.warn(`${lib} The 'xs' is not specified for the <Col /> component`);
       $size = countColumn;
     }
 
@@ -123,9 +129,9 @@ export const validationProps = (validationObject: Object) => {
     const inner = validationObject[key];
 
     const warning = (value: string) => console.warn(`
-@@reflexer.
-${value} is not supported.
-for ${key} you can use one of these [${objectValue.toString()}].
+${lib}
+'${value}' is not supported.
+for '${key}' you can use one of these [${objectValue.toString()}].
 `);
 
     if (objectValue.length) {
@@ -141,8 +147,8 @@ for ${key} you can use one of these [${objectValue.toString()}].
         ));
       }
       return console.warn(`
-@@reflexer.
-${typeof inner} - ${inner} is not supported
+${lib}
+${typeof inner} - '${inner}' is not supported
 `);
     }
     return false;

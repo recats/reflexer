@@ -8,8 +8,8 @@
 
 # Install
 ```sh
-yarn add reflexer@beta
-npm install reflexer@beta
+yarn add reflexer
+npm install reflexer
 ```
 
 ## Grid
@@ -131,7 +131,7 @@ export const theme = {
       lg: 64,
       md: 48,
       sm: 30,
-      xs: 0,
+      xs: 0, # ‘xs’ is a minimum width that reflexer will allow. By default it’s set to zero. If it is set to 30, then min-width: 30em will be generated
     },
   },
 };

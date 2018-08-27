@@ -1,10 +1,10 @@
 {
   "name": "reflexer",
-  "version": "2.1.2-beta",
+  "version": "2.1.3",
   "description": "React flexbox grid library",
   "main": "lib/index.js",
   "repository": "git@github.com:stk-dmitry/reflexer.git",
-  "author": "__strelkov <stkdmitry@ya.ru>, recats",
+  "author": "__strelkov <stkdmitry@ya.ru>, @recats",
   "license": "MIT",
   "scripts": {
     "build": "nwb build-react-component",
@@ -40,7 +40,7 @@
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "styled-components": "^3.4.2"
+    "styled-components": "^3.4.5"
   },
   "peerDependencies": {
     "flow-typed": "^2.5.1"
