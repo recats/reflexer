@@ -1,6 +1,6 @@
 {
   "name": "reflexer",
-  "version": "2.1.3",
+  "version": "2.2.0",
   "description": "React flexbox grid library",
   "main": "lib/index.js",
   "repository": "git@github.com:stk-dmitry/reflexer.git",
