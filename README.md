@@ -57,6 +57,21 @@ import { Col } from 'reflexer';
 </Col>
 ```
 
+### Media
+```js
+import { media } from 'reflexer';
+
+const Container = styled.div`
+  ${props => media(props, 'lg')`
+    color: red;
+  `}
+  // @media (min-width: 64em) {
+  //  .fbIKz {
+  //    color: red;
+  //  }
+  // }
+`;
+```
 
 ## Theme
 ```js
