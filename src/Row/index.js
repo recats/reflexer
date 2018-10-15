@@ -25,18 +25,18 @@ type Props = {
   alignContent?: FlowAlignContent,
   children: Node,
   theme?: Object,
-  tag?: string,
+  as?: string,
 }
 
 
 const Styled = styled(({
-  children, flexDirection, flexWrap, justifyContent, alignItems, alignContent, theme, tag = 'div', ...props
+  children, flexDirection, flexWrap, justifyContent, alignItems, alignContent, theme, as = 'div', ...props
 }: Props) => {
   validationProps({
     flexDirection, flexWrap, justifyContent, alignItems, alignContent,
   });
   return React.createElement(
-    tag,
+    as,
     props,
     children,
   );
@@ -46,7 +46,7 @@ const FlexElement = (props: Props) => <Styled {...props} />;
 
 FlexElement.defaultProps = {
   theme: undefined,
-  tag: 'div',
+  as: 'div',
   flexWrap: { xs: consts.flexWrap.wrap },
   flexDirection: { xs: consts.flexDirection.row },
   justifyContent: { xs: consts.justifyContent.flexStart },

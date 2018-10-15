@@ -8,13 +8,13 @@ import { Grid } from './styled';
 type Props = {
   children: Node,
   fluid?: boolean,
-  tag?: string,
+  as?: string,
 }
 
 const Styled = styled(({
-  children, fluid, tag = 'div', ...props
+  children, fluid, as = 'div', ...props
 }: Props) => React.createElement(
-  tag,
+  as,
   props,
   children,
 ))`${Grid}`;
@@ -22,7 +22,7 @@ const Styled = styled(({
 const GridElement = (props: Props) => <Styled {...props} />;
 
 GridElement.defaultProps = {
-  tag: 'div',
+  as: 'div',
   fluid: false,
 };
 

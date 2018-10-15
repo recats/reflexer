@@ -122,17 +122,6 @@ return (
 )
 ```
 
-## Custom Tag
-```js
-return (
- <Row tag="span">
-  <Col basis={12} tag={StyledElement}>
-    ...
-  </Col>
- </Row>
-)
-```
-
 ## Default params
 ```js
 export const theme = {
