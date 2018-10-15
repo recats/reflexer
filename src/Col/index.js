@@ -13,13 +13,13 @@ type Props = {
   offset?: FlowMulti,
   basis: FlowMulti,
   theme?: Object,
-  tag?: string,
+  as?: string,
 };
 
 const Styled = styled(({
-  children, basis, order, offset, theme, tag = 'div', ...props
+  children, basis, order, offset, theme, as = 'div', ...props
 }: Props) => React.createElement(
-  tag,
+  as,
   props,
   children,
 ))`${Col}`;
@@ -27,7 +27,7 @@ const Styled = styled(({
 const ColElement = (props: Props) => <Styled {...props} />;
 
 ColElement.defaultProps = {
-  tag: 'div',
+  as: 'div',
   order: undefined,
   offset: undefined,
   theme: undefined,
