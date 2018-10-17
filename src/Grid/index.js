@@ -1,30 +1,12 @@
-// @flow
-import type { Node } from 'react';
-import React from 'react';
-// $FlowIssues
-import styled from 'styled-components';
-import { Grid } from './styled';
+import styled, { css } from 'styled-components';
 
-type Props = {
-  children: Node,
-  fluid?: boolean,
-  as?: string,
-}
+import { propsChecker, mediaProperty } from '../helpers';
 
-const Styled = styled(({
-  children, fluid, as = 'div', ...props
-}: Props) => React.createElement(
-  as,
-  props,
-  children,
-))`${Grid}`;
-
-const GridElement = (props: Props) => <Styled {...props} />;
-
-GridElement.defaultProps = {
-  as: 'div',
-  fluid: false,
-};
-
-// $FlowIssues
-export default GridElement;
+export default styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  ${props => props.fluid && css`
+    ${mediaProperty(props, propsChecker(props, 'gridFluid'), 'padding-left')};
+    ${mediaProperty(props, propsChecker(props, 'gridFluid'), 'padding-right')};
+  `}
+`;

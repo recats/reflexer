@@ -15,6 +15,7 @@ npm install reflexer
 ## Grid
 ```js
 import { Grid } from 'reflexer';
+# or import Grid from 'reflexer/lib/Grid';
 
 <Grid fluid?>
   grid reflexer
@@ -26,6 +27,7 @@ import { Grid } from 'reflexer';
 
 ```js
 import { Row } from 'reflexer';
+# or import Row from 'reflexer/lib/Row';
 
 # <params>={{ xs: <value> }} || <params>="<value>"
 
@@ -44,6 +46,7 @@ import { Row } from 'reflexer';
 ## Col
 ```js
 import { Col } from 'reflexer';
+# or import Col from 'reflexer/lib/Col';
 
 # <params>={{ xs: <value | 'auto'> }} || <params>="<value | 'auto'>"
 
@@ -121,6 +124,9 @@ return (
  <Row justifyContent={{ xSmall: 19, retina: 10, sm: 15, md: 2 }} />
 )
 ```
+
+## Custom tag
+Use `as` from [styled-components](https://www.styled-components.com/docs/api#as-polymorphic-prop)
 
 ## Default params
 ```js

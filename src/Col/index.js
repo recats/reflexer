@@ -1,37 +1,13 @@
-// @flow
-import React from 'react';
-import type { Node } from 'react';
-// $FlowIssues
-import styled, { withTheme } from 'styled-components';
+import styled from 'styled-components';
 
-import { Col } from './styled';
-import type { FlowMulti } from './const';
+import { checkWidth, mediaProperty, propsChecker } from '../helpers';
 
-type Props = {
-  children: Node,
-  order?: FlowMulti,
-  offset?: FlowMulti,
-  basis: FlowMulti,
-  theme?: Object,
-  as?: string,
-};
-
-const Styled = styled(({
-  children, basis, order, offset, theme, as = 'div', ...props
-}: Props) => React.createElement(
-  as,
-  props,
-  children,
-))`${Col}`;
-
-const ColElement = (props: Props) => <Styled {...props} />;
-
-ColElement.defaultProps = {
-  as: 'div',
-  order: undefined,
-  offset: undefined,
-  theme: undefined,
-};
-
-// $FlowIssues
-export default withTheme(ColElement);
+export default styled.div`
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  ${props => mediaProperty(props, propsChecker(props, 'colGutter'), 'padding-left')};
+  ${props => mediaProperty(props, propsChecker(props, 'colGutter'), 'padding-right')};
+  ${props => props.order && mediaProperty(props, props.order, 'order')};
+  ${props => props.offset && mediaProperty(props, props.offset, 'margin-left', true)};
+  ${props => props.basis && checkWidth(props, props.basis)};
+`;
