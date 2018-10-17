@@ -30,7 +30,10 @@ export const isObject = (object: *) => (
 export const propsChecker = (props: Object, entity: string) => {
   const newProps = {
     ...props,
-    theme: { ...props.theme, reflexer: { ...theme.reflexer, ...props.theme.reflexer } },
+    theme: {
+      ...props.theme,
+      reflexer: { ...theme.reflexer, ...props.theme.reflexer },
+    },
   };
   return newProps.theme.reflexer[entity];
 };
