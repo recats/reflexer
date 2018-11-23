@@ -8,8 +8,8 @@
 
 # Install
 ```sh
-yarn add reflexer
-npm install reflexer
+yarn add reflexer styled-components
+npm install reflexer styled-components
 ```
 
 ## Grid
@@ -78,8 +78,6 @@ const Container = styled.div`
 
 ## Theme
 ```js
-import { ThemeProvider } from 'reflexer';
-// or
 import { ThemeProvider } from 'styled-components';
 
 const theme = {

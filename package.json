@@ -1,6 +1,6 @@
 {
   "name": "reflexer",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "React flexbox grid library",
   "main": "lib/index.js",
   "repository": "git@github.com:stk-dmitry/reflexer.git",
@@ -35,12 +35,10 @@
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.83.0",
     "husky": "^1.1.2",
-    "nwb": "^0.23.0"
-  },
-  "dependencies": {
-    "styled-components": "^4.0.0"
+    "nwb": "^0.23.0",
+    "flow-typed": "^2.5.1"
   },
   "peerDependencies": {
-    "flow-typed": "^2.5.1"
+    "styled-components": ">= 4"
   }
 }
