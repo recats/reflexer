@@ -1,13 +1,16 @@
 {
   "name": "reflexer",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "React flexbox grid library",
   "main": "lib/index.js",
   "repository": "git@github.com:stk-dmitry/reflexer.git",
   "author": "Dmitry Strelkov <stkdmitry@ya.ru>",
   "license": "MIT",
   "scripts": {
-    "build": "nwb build-react-component",
+    "build": "rm -rf lib && yarn build-cjs && yarn build-umd && yarn build-esm",
+    "build-cjs": "./node_modules/.bin/rollup src/index.js --config --file lib/index.js",
+    "build-umd": "./node_modules/.bin/rollup src/index.js --config --format umd --file lib/index.umd.js",
+    "build-esm": "./node_modules/.bin/rollup src/index.js --config --format esm --file lib/index.esm.js",
     "flow": "./node_modules/.bin/flow",
     "flow:build": "bash ./flow.sh",
     "lint:js": "./node_modules/.bin/eslint ./src --ext=js,jsx",
@@ -26,21 +29,25 @@
     "react-component"
   ],
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.7.0",
+    "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-flowtype": "^3.2.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.86.0",
+    "flow-typed": "^2.5.1",
     "husky": "^1.2.0",
-    "nwb": "^0.23.0"
-  },
-  "dependencies": {
-    "styled-components": "^4.1.1"
+    "rollup": "^0.67.3",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0"
   },
   "peerDependencies": {
-    "flow-typed": "^2.5.1"
+    "styled-components": ">= 4"
   }
 }

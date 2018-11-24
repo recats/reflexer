@@ -1,4 +1,5 @@
 /* eslint no-else-return: 0 */
+// eslint-disable-next-line import/no-unresolved
 import { css } from 'styled-components';
 
 import { isObject } from './helpers';
@@ -19,7 +20,7 @@ export default (value, args) => {
       return `(${obj.querie}: ${obj.size}${obj.unit})`;
     });
     return css`
-      @media ${query.join(' and ')} { ${style} }
+      @media ${query.join(' and ')} { ${style} };
     `;
   } else if (typeof value === 'number') {
     if (value > 0) {
