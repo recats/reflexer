@@ -15,7 +15,6 @@ npm install reflexer styled-components
 ## Grid
 ```js
 import { Grid } from 'reflexer';
-# or import Grid from 'reflexer/lib/Grid';
 
 <Grid fluid?>
   grid reflexer
