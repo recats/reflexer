@@ -27,7 +27,6 @@ import { Grid } from 'reflexer';
 
 ```js
 import { Row } from 'reflexer';
-# or import Row from 'reflexer/lib/Row';
 
 # <params>={{ xs: <value> }} || <params>="<value>"
 
@@ -46,7 +45,6 @@ import { Row } from 'reflexer';
 ## Col
 ```js
 import { Col } from 'reflexer';
-# or import Col from 'reflexer/lib/Col';
 
 # <params>={{ xs: <value | 'auto'> }} || <params>="<value | 'auto'>"
 

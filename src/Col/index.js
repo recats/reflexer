@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import styled from 'styled-components';
 
 import { checkWidth, mediaProperty, propsChecker } from '../helpers';
