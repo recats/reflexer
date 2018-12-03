@@ -41,7 +41,7 @@
     "flow-bin": "^0.87.0",
     "flow-typed": "^2.5.1",
     "husky": "^1.2.0",
-    "rollup": "^0.67.3",
+    "rollup": "^0.67.4",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-flow": "^1.1.1",
     "rollup-plugin-json": "^3.1.0",
