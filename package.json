@@ -29,7 +29,7 @@
     "react-component"
   ],
   "devDependencies": {
-    "@babel/core": "^7.1.6",
+    "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.1.6",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.9.0",
