@@ -29,7 +29,7 @@
     "react-component"
   ],
   "devDependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.14.0",
@@ -38,7 +38,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.12.3",
-    "flow-bin": "^0.92.1",
+    "flow-bin": "^0.93.0",
     "flow-typed": "^2.5.1",
     "husky": "^1.3.1",
     "rollup-plugin-babel": "^4.3.1",
