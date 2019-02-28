@@ -29,8 +29,8 @@
     "react-component"
   ],
   "devDependencies": {
-    "@babel/core": "^7.3.3",
-    "@babel/preset-env": "^7.3.1",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
