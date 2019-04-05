@@ -3303,13 +3303,14 @@ rollup-pluginutils@^2.5.0:
     estree-walker "^0.6.0"
     micromatch "^3.1.10"
 
-rollup@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.8.0.tgz#e3ce8b708ad4325166717f74f244f691595d35e2"
-  integrity sha512-dKxL6ihUZ9YrVySKf/LBz5joW2sqwWkiuki34279Ppr2cL+O6Za6Ujovk+rtTX0AFCIsH1rs6y8LYKdZZ/7C5A==
+rollup@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.9.0.tgz#65f7db8d312a07d4e9702316025f91df56ce9f9c"
+  integrity sha512-cNZx9MLpKFMSaObdVFeu8nXw8gfw6yjuxWjt5mRCJcBZrAJ0NHAYwemKjayvYvhLaNNkf3+kS2DKRKS5J6NRVg==
+
   dependencies:
     "@types/estree" "0.0.39"
-    "@types/node" "^11.11.6"
+    "@types/node" "^11.13.0"
     acorn "^6.1.1"
 
 run-async@^2.2.0:
