@@ -1,8 +1,8 @@
+// @glow
 /* eslint no-else-return: 0 */
 // eslint-disable-next-line import/no-unresolved
 import { css } from 'styled-components';
-
-import { isObject } from './helpers';
+import { isObject } from './methods';
 
 export default (value, args) => {
   const getObj = data => ({ querie: 'min-width', unit: 'em', ...data });
