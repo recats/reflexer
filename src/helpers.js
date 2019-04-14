@@ -1,6 +1,7 @@
 // @flow
 import generateMediaQuery from './generatorMediaQuery';
 import { RowValues } from './Row/const';
+import { isObject } from './methods';
 
 import pck from '../package.json';
 
@@ -21,11 +22,6 @@ export const theme = {
     },
   },
 };
-
-export const isObject = (object: *) => (
-  typeof object === 'object' && object.constructor === Object
-);
-
 
 export const propsChecker = (props: Object, entity: string) => {
   const newProps = {
