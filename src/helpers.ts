@@ -1,11 +1,9 @@
-// @flow
 import generateMediaQuery from './generatorMediaQuery';
-import { RowValues } from './Row/const';
-import { isObject } from './methods';
+import { IEntityProps, IParamsValue, IProps } from './types';
 
 import pck from '../package.json';
 
-const lib = `@@${pck.name} - ${pck.version}`;
+const lib = `--${pck.name}@${pck.version}`;
 
 export const theme = {
   reflexer: {
@@ -23,7 +21,7 @@ export const theme = {
   },
 };
 
-export const propsChecker = (props: Object, entity: string) => {
+export const propsChecker = (props: IProps, entity: IEntityProps) => {
   const newProps = {
     ...props,
     theme: {
@@ -31,20 +29,21 @@ export const propsChecker = (props: Object, entity: string) => {
       reflexer: { ...theme.reflexer, ...props.theme.reflexer },
     },
   };
+  // @ts-ignore
   return newProps.theme.reflexer[entity];
 };
 
-const getMediSize = (props: Object) => ({ xs: 0, ...propsChecker(props, 'size') });
+const getMediSize = (props: IProps) => ({ xs: 0, ...propsChecker(props, 'size') });
 
-export const checkPercent = (props: Object, size: number) => (
+export const checkPercent = (props: IProps, size: number) => (
   `${100 / (+propsChecker(props, 'column') / size)}%`
 );
 
-export const media = (props: Object, key: string) => {
+export const media = (props: IProps, key: string) => {
   const sizeMedia = getMediSize(props);
   const acm = Object.keys(sizeMedia).reduce((accumulator, label) => {
-    const accum = accumulator;
-    accum[label] = (...args: *) => generateMediaQuery(sizeMedia[label], args);
+    const accum: any = accumulator;
+    accum[label] = (...args: any) => generateMediaQuery(sizeMedia[label], args);
     return accum;
   }, {});
 
@@ -55,8 +54,7 @@ export const media = (props: Object, key: string) => {
   return acm[key];
 };
 
-
-const checkTypeParams = (props: Object, params: Object | string | number): Object => {
+const checkTypeParams = (props: IProps, params: IParamsValue): object => {
   let values = {};
   if (typeof params === 'string' || typeof params === 'number') {
     values = { xs: params };
@@ -66,10 +64,10 @@ const checkTypeParams = (props: Object, params: Object | string | number): Objec
   return values;
 };
 
-export const checkWidth = (props: Object, params: Object | number) => {
-  const object = checkTypeParams(props, params);
+export const checkWidth = (props: IProps, params: IParamsValue) => {
+  const object: any = checkTypeParams(props, params);
   const countColumn = +propsChecker(props, 'column');
-  return (Object.keys(object): any).map((key) => {
+  return Object.keys(object).map((key) => {
     if (object[key] === 'auto') {
       return media(props, key)`
         flex-grow: 1;
@@ -103,13 +101,13 @@ export const checkWidth = (props: Object, params: Object | number) => {
 };
 
 export const mediaProperty = (
-  props: Object,
-  params: Object | string | number,
+  props: IProps,
+  params: IParamsValue,
   paramsKey: string,
   isCheckPercent?: boolean,
 ) => {
-  const object = checkTypeParams(props, params);
-  return (Object.keys(object): any).map((key) => {
+  const object: any = checkTypeParams(props, params);
+  return Object.keys(object).map((key) => {
     if (isCheckPercent) {
       return media(props, key)`
         ${paramsKey}: ${isCheckPercent ? checkPercent(props, object[key]) : object[key]};
@@ -119,37 +117,5 @@ export const mediaProperty = (
     return media(props, key)`
       ${paramsKey}: ${object[key]};
     `;
-  });
-};
-
-export const validationProps = (validationObject: Object) => {
-  Object.keys(validationObject).forEach((key) => {
-    const objectValue = Object.values(RowValues[key] || {});
-    const inner = validationObject[key];
-
-    const warning = (value: string) => console.warn(`
-${lib}
-'${value}' is not supported.
-for '${key}' you can use one of these [${objectValue.toString()}].
-`);
-
-    if (objectValue.length) {
-      if (typeof inner === 'string') {
-        if (!objectValue.includes(inner.trim())) {
-          return warning(inner);
-        }
-        return false;
-      }
-      if (isObject(inner)) {
-        return Object.keys(inner).map(innerKey => (
-          objectValue.includes(inner[innerKey]) || warning(`${inner[innerKey]} in ${innerKey}`)
-        ));
-      }
-      return console.warn(`
-${lib}
-${typeof inner} - '${inner}' is not supported
-`);
-    }
-    return false;
   });
 };

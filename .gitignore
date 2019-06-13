@@ -26,7 +26,7 @@ build
 # User-specific stuff:
 .idea
 .hg/
-
+.rpt2_cache/
 
 #builder
 build
