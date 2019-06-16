@@ -1,19 +1,23 @@
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
-import flow from 'rollup-plugin-flow';
+import typescript from 'rollup-plugin-typescript2';
 import json from 'rollup-plugin-json';
+import { terser } from 'rollup-plugin-terser';
+
+import pkg from './package.json';
 
 export default {
   output: {
-    name: 'reflexer',
+    name: pkg.name,
     format: 'cjs',
   },
-  plugins: [
-    json(),
-    flow(),
-    resolve(),
-    babel({
-      exclude: 'node_modules/**',
-    }),
+  external: [
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
   ],
-};
+  plugins: [
+    typescript({
+      typescript: require('typescript'),
+    }),
+    json(),
+    terser(),
+  ],
+}

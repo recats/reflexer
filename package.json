@@ -1,6 +1,6 @@
 {
   "name": "reflexer",
-  "version": "2.5.2",
+  "version": "2.6.0-beta.0",
   "description": "React flexbox grid library",
   "main": "lib/index.js",
   "repository": "git@github.com:stk-dmitry/reflexer.git",
@@ -8,17 +8,14 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf lib && yarn build-cjs && yarn build-umd && yarn build-esm",
-    "build-cjs": "./node_modules/.bin/rollup src/index.js --config --file lib/index.js",
-    "build-umd": "./node_modules/.bin/rollup src/index.js --config --format umd --file lib/index.umd.js",
-    "build-esm": "./node_modules/.bin/rollup src/index.js --config --format esm --file lib/index.esm.js",
-    "flow": "./node_modules/.bin/flow",
-    "flow:build": "bash ./flow.sh",
-    "lint:js": "./node_modules/.bin/eslint ./src --ext=js,jsx",
-    "test": "yarn lint:js && yarn flow:build && yarn flow"
+    "build-cjs": "./node_modules/.bin/rollup src/index.ts --config --file lib/index.js",
+    "build-umd": "./node_modules/.bin/rollup src/index.ts --config --format umd --file lib/index.umd.js",
+    "build-esm": "./node_modules/.bin/rollup src/index.ts --config --format esm --file lib/index.esm.js",
+    "lint": "./node_modules/.bin/tslint -p . ./src/*.ts"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test"
+      "pre-commit": "yarn lint"
     }
   },
   "keywords": [
@@ -29,23 +26,14 @@
     "react-component"
   ],
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-flowtype": "^3.10.1",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.12.4",
-    "flow-bin": "^0.101.0",
-    "flow-typed": "^2.5.1",
+    "@types/styled-components": "^4.1.16",
     "husky": "^2.4.1",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup": "^1.15.1",
-    "rollup-plugin-flow": "^1.1.1",
+    "rollup": "^1.15.2",
     "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.0.1"
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup-plugin-typescript2": "^0.21.1",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.1"
   },
   "peerDependencies": {
     "styled-components": ">= 4"

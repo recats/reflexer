@@ -1,12 +1,12 @@
-// eslint-disable-next-line import/no-unresolved
 import styled, { css } from 'styled-components';
+import { IProps } from './../types';
 
-import { propsChecker, mediaProperty } from '../helpers';
+import { mediaProperty, propsChecker } from '../helpers';
 
 export default styled.div`
   margin-left: auto;
   margin-right: auto;
-  ${props => props.fluid && css`
+  ${(props: IProps) => props.fluid && css`
     ${mediaProperty(props, propsChecker(props, 'gridFluid'), 'padding-left')};
     ${mediaProperty(props, propsChecker(props, 'gridFluid'), 'padding-right')};
   `}
