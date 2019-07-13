@@ -1,6 +1,6 @@
 export interface IProps extends IRowParams {
   order?: number | ISizeObject;
-  offset?: number | ISizeObject;
+  offset?: { basis: number | ISizeObject, float: 'left' | 'right' };
   basis?: number | ISizeObject;
   fluid?: boolean;
 
