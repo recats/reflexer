@@ -22,7 +22,6 @@ import { Grid } from 'reflexer';
 ```
 
 ## Row
-#### [Support params in Row](https://github.com/stk-dmitry/reflexer/blob/master/src/Row/const.js)
 
 ```js
 import { Row } from 'reflexer';
@@ -51,7 +50,7 @@ import { Col } from 'reflexer';
   basis={{ xs: 12 }}
   # or such an option basis={12}
   order={{ xs: 1, sm: 2, md: 3 }}
-  offset={{ xs: 1, sm: 3 }}
+  offset={{ size: { xs: 1, sm: 2, md: 3 }, float: 'left' | 'right' }}
 >
   column reflexer
 </Col>
@@ -120,9 +119,6 @@ return (
 )
 ```
 
-## Custom tag
-Use `as` from [styled-components](https://www.styled-components.com/docs/api#as-polymorphic-prop)
-
 ## Default params
 ```js
 export const theme = {
@@ -145,4 +141,3 @@ export const theme = {
 ## TODO
 - [ ] Test
 - [ ] Coveralls
-- [x] Demo Stand

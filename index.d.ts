@@ -1,19 +1,8 @@
-// Type definitions for reflexer v2.602
+// Type definitions for reflexer
 // Project: https://github.com/stk-dmitry/reflexer
 // Definitions by: Strelkov Dmitry <https://github.com/stk-dmitry>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 2.6
 /// <reference types="react" />
 /// <reference types="styled-components" />
-
-import * as React from "react";
-import { StyledComponent } from 'styled-components';
-
-type st = string | { [key: string]: string };
-
-export as namespace reflexer;
-
-// ### ROW
 
 type flexWrap = 'wrap' | 'nowrap' | 'wrap-reverse';
 type flexDirection =  'row' | 'row-reverse' | 'column' | 'column-reverse';
@@ -21,36 +10,35 @@ type justifyContent = 'flex-start' | 'flex-end' | 'center' | 'space-around' | 's
 type alignItems = 'stretch' | 'baseline' | 'center' | 'flex-start' | 'flex-end';
 type alignContent = 'stretch' | 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between';
 
-interface RowProps extends React.Props<Row> {
-  as?: StyledComponent<any, any, {}, never>,
-  flexWrap?: flexWrap | { [key: string]: flexWrap },
-  flexDirection?: flexDirection | { [key: string]: flexDirection },
-  justifyContent?: justifyContent | { [key: string]: justifyContent },
-  alignItems?: alignItems | { [key: string]: alignItems },
-  alignContent?: alignContent | { [key: string]: alignContent },
+declare module 'reflexer' {
+  import * as React from 'react';
+  import {StyledComponent} from 'styled-components';
+
+  export interface RowProps extends React.ComponentPropsWithRef<'div'> {
+    flexWrap?: flexWrap | { [key: string]: flexWrap },
+    flexDirection?: flexDirection | { [key: string]: flexDirection },
+    justifyContent?: justifyContent | { [key: string]: justifyContent },
+    alignItems?: alignItems | { [key: string]: alignItems },
+    alignContent?: alignContent | { [key: string]: alignContent },
+  }
+
+  export interface ColProps extends React.ComponentPropsWithRef<'div'> {
+    basis?: 'auto' | number | { [key: string]: 'auto' | number },
+    order?: 'auto' | number | { [key: string]: 'auto' | number },
+    offset?: { float: 'left' | 'right', basis: number | { [key: string]: 'auto' | number } },
+  }
+
+  export interface GridProps extends React.ComponentPropsWithRef<'div'> {
+    fluid?: boolean,
+  }
+
+  export type GridComponent = StyledComponent<React.ForwardRefExoticComponent<Partial<GridProps>>, any>;
+  export type RowComponent = StyledComponent<React.ForwardRefExoticComponent<Partial<RowProps>>, any>;
+  export type ColComponents = StyledComponent<React.ForwardRefExoticComponent<Partial<ColProps>>, any>;
+
+  export const Grid: GridComponent;
+  export const Row: RowComponent;
+  export const Col: ColComponents;
+
+  export function media(props: any, key: string): any;
 }
-
-export class Row extends React.Component<RowProps> {}
-
-// ### COL
-
-interface ColProps extends React.Props<Col> {
-  as?: StyledComponent<any, any, {}, never>,
-  basis?: number | { [key: string]: number },
-  order?: number | { [key: string]: number },
-  offset?: number | { [key: string]: number },
-}
-
-export class Col extends React.Component<ColProps> {}
-
-// ### Grid
-
-interface GridProps extends React.Props<Grid> {
-  as?: StyledComponent<any, any, {}, never>,
-  fluid?: boolean;
-}
-
-export class Grid extends React.Component<GridProps> {}
-
-
-export function media(props: any, key: string): any;
