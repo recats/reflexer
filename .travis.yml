@@ -12,6 +12,6 @@ before_script:
   - yarn install
 
 script:
-  - yarn run test
+  - yarn run lint
 
 cache: yarn
