@@ -29,7 +29,7 @@
   "devDependencies": {
     "@types/styled-components": "^4.1.18",
     "husky": "^3.0.0",
-    "rollup": "^1.21.3",
+    "rollup": "^1.27.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-typescript2": "^0.24.0",
