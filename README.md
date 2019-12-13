@@ -50,7 +50,7 @@ import { Col } from 'reflexer';
   basis={{ xs: 12 }}
   # or such an option basis={12}
   order={{ xs: 1, sm: 2, md: 3 }}
-  offset={{ size: { xs: 1, sm: 2, md: 3 }, float: 'left' | 'right' }}
+  offset={{ basis: { xs: 1, sm: 2, md: 3 }, float: 'left' | 'right' }}
 >
   column reflexer
 </Col>
