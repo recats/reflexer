@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import { mediaProperty, propsChecker } from '../helpers';
 import safeMediaPropertyCheck from '../safeMediaPropertyCheck';
-import { IProps } from './../types';
+import { IProps } from '../types';
 
-export default styled.div`
+export default styled('div').withConfig({
+  shouldForwardProp: prop => !['flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'alignContent'].includes(prop),
+})`
   box-sizing: border-box;
   display: flex;
   flex: 0 1 auto;
