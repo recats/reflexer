@@ -12,7 +12,7 @@ type alignContent = 'stretch' | 'center' | 'flex-start' | 'flex-end' | 'space-ar
 
 declare module 'reflexer' {
   import * as React from 'react';
-  import {StyledComponent} from 'styled-components';
+  import { StyledComponent } from 'styled-components';
 
   export interface RowProps extends React.ComponentPropsWithRef<'div'> {
     flexWrap?: flexWrap | { [key: string]: flexWrap },
@@ -32,9 +32,9 @@ declare module 'reflexer' {
     fluid?: boolean,
   }
 
-  export type GridComponent = StyledComponent<React.ForwardRefExoticComponent<Partial<GridProps>>, any>;
-  export type RowComponent = StyledComponent<React.ForwardRefExoticComponent<Partial<RowProps>>, any>;
-  export type ColComponents = StyledComponent<React.ForwardRefExoticComponent<Partial<ColProps>>, any>;
+  export type GridComponent = StyledComponent<'div', any, GridProps>;
+  export type RowComponent = StyledComponent<'div', any, RowProps>;
+  export type ColComponents = StyledComponent<"div", any, ColProps>;
 
   export const Grid: GridComponent;
   export const Row: RowComponent;
