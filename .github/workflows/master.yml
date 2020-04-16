@@ -31,5 +31,5 @@ jobs:
       if: failure()
       run: exit 1
 
-   - name: recats ci
+    - name: recats ci
       run: curl -H "Content-Type:application/json" -X POST ${{ secrets.CI_ENDPOINT }} -d '{"telegramChatID":"${{ secrets.TELEGRAM_TO }}","owner":"stk-dmitry","repo":"reflexer","branch":"master","description":""}'
