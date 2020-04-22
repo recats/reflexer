@@ -1,6 +1,5 @@
 <img src="https://user-images.githubusercontent.com/9702154/44400365-89f1e480-a553-11e8-9c02-09cb2c28b754.png" width="200" />
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/stk-dmitry/reflexer.svg)](https://greenkeeper.io/)
 [![npm](https://img.shields.io/npm/v/reflexer.svg)](https://www.npmjs.com/package/reflexer)
 [![Build Status](https://travis-ci.org/stk-dmitry/reflexer.svg?branch=master)](https://travis-ci.org/stk-dmitry/reflexer)
 [![dependencies Status](https://david-dm.org/stk-dmitry/reflexer/status.svg)](https://david-dm.org/stk-dmitry/reflexer)
