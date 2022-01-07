@@ -1,3 +1,6 @@
+# :stop_sign:	DEPRECATED :stop_sign:
+use [vanilla-extract](https://github.com/seek-oss/vanilla-extract), [linaria](https://github.com/callstack/linaria) or any other no run-time library instead styled-components
+
 <img src="https://user-images.githubusercontent.com/9702154/44400365-89f1e480-a553-11e8-9c02-09cb2c28b754.png" width="200" />
 
 [![npm](https://img.shields.io/npm/v/reflexer.svg)](https://www.npmjs.com/package/reflexer)
